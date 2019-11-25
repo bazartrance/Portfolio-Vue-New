@@ -7,9 +7,11 @@
       <router-link to="/resume">Resume</router-link>
       <router-link to="/contact">Contact</router-link>
     </div>
+    <div class="body">
     <transition name="slide-fade">
     <router-view/>
     </transition>
+    </div>
     </div>
   </div>
 </template>
@@ -19,7 +21,6 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
@@ -28,10 +29,10 @@
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #ffffff;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #FF8300;
     }
   }
 }
@@ -47,10 +48,9 @@
 
 .grid-container {
   display: grid;
+  width: 100vw;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: "nav" 
-                       "body";
+  grid-template-rows: 100px 1fr;
 }
 
 .nav-container {
@@ -60,7 +60,16 @@
 }
 
 .nav {
- background-color: black;
- opacity: .2;
+grid-row: 1;
+grid-column: span 3 / -1;
+z-index: 100;
+background-color: #00212E;
+}
+
+.body {
+grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-end: span 3;
+  z-index: 1;
 }
 </style>
