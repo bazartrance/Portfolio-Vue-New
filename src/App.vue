@@ -6,6 +6,7 @@
       <router-link to="/portfolio">About</router-link>
       <router-link to="/resume">Resume</router-link>
       <router-link to="/contact">Contact</router-link>
+      <router-link to="/SearchPage">Contact</router-link>
     </div>
     <div class="body">
     <transition name="slide-fade">
