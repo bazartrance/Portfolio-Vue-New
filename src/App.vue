@@ -3,7 +3,7 @@
     <div class="grid-container">
      <div class="nav-container"> 
     <div class="nav" id="nav">
-      <div class="logo"> <img alt="Brandon Bazar logo" src="./assets/bb-logo.png"></div>
+      <div class="logo"> <img style="height: 46px;" alt="Brandon Bazar logo" src="./assets/bb-logo.svg"></div>
       <div class="links">
       <router-link to="/">Home</router-link> |
       <router-link to="/portfolio">Portfolio</router-link> |
@@ -24,25 +24,26 @@
 
 <style lang="scss">
 
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Oswald&display=swap');
 
 #app {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Oswald', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  background-color: #00212E;
+  color: #636363;
+  background-color: #f8f8f8;
 }
 
 #nav {
   padding: 30px;
 
   a {
-    font-weight: 600;
+    font-weight: 100;
     color: #ffffff;
+    font-family: 'Oswald', sans-serif;
 
     &.router-link-exact-active {
-      color: #FF8300;
+      color: #8D81FF;
     }
   }
 }
@@ -65,26 +66,28 @@
 }
 
 .nav { 
-font-family: 'Bebas Neue', sans-serif;
+font-family: 'Montser', sans-serif;
 color:#ffffff;
 font-size: 1.33em;
 padding: 30px;
 margin-left: 0;
 margin-right: 0;
 z-index: 100;
-background-color: #02242D;
+background-color: #2C2F3D;
 display: grid;
-grid-template-columns: 215px 1fr 100px;
+grid-template-columns: 260px 1fr 100px;
 grid-template-areas: "logo links contacts";
+box-shadow: 0 2px 4px 0 rgba(0,0,0,0.30);
 }
 
 .links {
  grid-area: links;
- padding-top: 9px;
+ padding-top: 4px;
 }
 
 .logo {
   grid-area: logo;
+  margin-top: -3px;
 }
 
 .contacts {
@@ -106,6 +109,7 @@ font-family: 'Montserrat', sans-serif;
 font-weight: 400;
 line-height: 1.45;
 margin: 0;
+background-color: #f8f8f8;
 }
 
 .body {

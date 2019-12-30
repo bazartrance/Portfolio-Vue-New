@@ -1,11 +1,10 @@
 <template>
-  <div class="home">
+
     <div class="video">
-     <!--<video autoplay><source src="../assets/videos/portfolio-brandon-bazar.mp4" type="video/mp4"></video>
-     <youtube :video-id="sdgBQhwuo9c" player-width="1280" player-height="750" :player-vars="{autoplay: 1}"></youtube>-->
+     <!--<video autoplay controls><source src="../assets/videos/portfolio-brandon-bazar.mp4" type="video/mp4"></video>-->
       <iframe src="https://www.youtube.com/embed/sdgBQhwuo9c?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
-    </div>
+
   </div>
 </template>
 
