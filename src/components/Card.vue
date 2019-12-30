@@ -4,7 +4,6 @@
         <img :src="data.image">
          <h3 @click="goTodetail(data.productId)" >{{data.productTitle}}</h3>
       </div>
-      TESTy
       </div>
 </template>
 
