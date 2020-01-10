@@ -2,14 +2,15 @@
   <div class="portfolio">
     <h1>This is a portfolio page</h1>
     <div class="filters">
-			<span class="filter" v-bind:class="{ active: currentFilter === 'ALL' }" v-on:click="setFilter('ALL')">ALL</span>
-			<span class="filter" v-bind:class="{ active: currentFilter === 'Test1' }" v-on:click="setFilter('Test1')">Test1</span>
-			<span class="filter" v-bind:class="{ active: currentFilter === 'Test2' }" v-on:click="setFilter('Test2')">Test2</span>
-			<span class="filter" v-bind:class="{ active: currentFilter === 'Test3' }" v-on:click="setFilter('Test3')">Test3</span>
-		</div>
 
+		</div>
+    <select v-model="select">
+      <option value="" disabled selected>Filter by Category</option>
+      <option :value="undefined">Show All</option>
+      <option v-for="(category, index) in categories" :key="index" :value="category">{{category}}</option>
+    </select>
     <div class="portfolio-container" >
-      <cardcomp v-if="currentFilter === portfoliolist.category || currentFilter === 'ALL'" v-bind:portfoliolist="portfoliolist"/>
+      <cardcomp v-bind:portfoliolist="filterportfoliolist"/>
     </div>
   </div>
 </template>
@@ -25,24 +26,28 @@ export default {
   name: 'portfolio',
   data () {
     return {
-      currentFilter: 'ALL',
+      //currentFilter: 'ALL',
       title: 'Portfolio',
+      select: "",
+      categories: ["UI/UX", "Test2", "Test3"],
        portfoliolist:[
       {
-        productTitle:"ABCN",
+        productTitle:"Columbia Fishing Landing Page",
         image       : require('../assets/images/academy-mock-landing-1-540x440.jpg'),
-        category: 'Test1',
+        category: 'UI/UX',
+        date: "2013",
+        description: "This was a design for a Columbia landing page. It was meant to be a starting point to explore the product line. ",
         productId:1
       },
       {
         productTitle:"KARMA",
-        image       : require('../assets/images/academy-mock-landing-1-540x440.jpg'),
-        category: 'Test2',
+        image       : require('../assets/images/iPad-in-Hand-Mockup-540x440.jpg'),
+        category: 'UI/UX',
         productId:2
       },
       {
         productTitle:"Tino",
-        image       : require('../assets/images/academy-mock-landing-1-540x440.jpg'),
+        image       : require('../assets/images/academy-mock-landing-3-540x440.jpg'),
         category: 'Test3',
         productId:3
       },
@@ -65,13 +70,27 @@ export default {
         productId:6
       }
       ]
+    };
+  },
+   computed: {
+    filterportfoliolist: function() {
+      let filtered = this.portfoliolist;
+      if (this.select) {
+        filtered = this.portfoliolist.filter(
+          c => c.category.toLowerCase() === this.select.toLowerCase()
+        );
+      }
+      return filtered;
     }
   },
   methods:{
   goTodetail(prodId) {
     let proId=prodId
     this.$router.push({name:'details',params:{Pid:proId}})
-  }
+  },
+  setFilter: function(filter) {
+			this.currentFilter = filter;
+    }
   }
 }
 </script>
@@ -79,9 +98,9 @@ export default {
 <style>
 .portfolio-container > div {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
   grid-column-gap: 26px;
+  grid-row-gap: 40px;
   margin: 30px;
 }
 

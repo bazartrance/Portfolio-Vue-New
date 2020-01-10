@@ -11,6 +11,7 @@ Vue.use(VueYouTubeEmbed, { global: true, componentId: "youtube-media" })
 
 Vue.use(VueRouter)
 
+
 const routes = [
   {
     path: '/',
@@ -53,3 +54,5 @@ const router = new VueRouter({
 })
 
 export default router
+
+
